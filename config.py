@@ -1,5 +1,5 @@
 class Config:
-    pass
+    SECRET_KEY='mi_clave_secreta_123'
 
 class DevelopmentConfig(Config):
     DEBUG = True
