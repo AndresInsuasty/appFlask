@@ -20,6 +20,32 @@
         required>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesi&oacute;n</button>
+    {% with message = get_flashed_messages(with_categories=True) %}
+    {% if message %}
+    <br>
+    {% for category, msg in message %}
+
+    {% if category == 'warning' %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong style="font-size: 14;">{{ msg }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong style="font-size: 14;">{{ msg }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    {% endif %}
+
+    {% endfor %}
+
+    {% endif %}
+    {% endwith %}
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 </form>
 
